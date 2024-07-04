@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: 'postgres:latest'
+    restart: always
+    environment:
+      POSTGRES_USER: ${SPRING_DATASOUCE_USERNAME}
+      POSTGRES_PASSWORD: ${SPRING_DATASOUCE_PASSWORD}
+      POSTGRES_DB: ${SPRING_DATASOUCE_BD}
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres:/var/lib/postgressql/data
